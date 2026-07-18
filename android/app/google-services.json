@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1016240511800",
+    "project_id": "onetest-demo",
+    "storage_bucket": "onetest-demo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016240511800:android:75ae3c2858e2fbf9323fcd",
+        "android_client_info": {
+          "package_name": "gr.iantoniou.onetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016240511800-c0uns11j191028bm7ke6ku4j35uqjiv1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gr.iantoniou.onetest",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "1016240511800-ban5i5pq8d4lpkg787le9gscs0u8613h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCDeAZwZtt-HnsJKohCEHMAxqyj0mJHod4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016240511800-ban5i5pq8d4lpkg787le9gscs0u8613h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1016240511800-chr8vbpr9v1gujk9n24fqe7mfer1de55.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "gr.iantoniou.onetest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
