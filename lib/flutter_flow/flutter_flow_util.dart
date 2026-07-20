@@ -13,7 +13,6 @@ import 'package:json_path/json_path.dart';
 import 'package:timeago/timeago.dart' as timeago;
 import 'package:url_launcher/url_launcher.dart';
 
-import '../main.dart';
 
 
 export 'keep_alive_wrapper.dart';
@@ -175,10 +174,10 @@ T? castToType<T>(dynamic value) {
     return null;
   }
   switch (T) {
-    case double:
+    case const (double):
       // Doubles may be stored as ints in some cases.
       return value.toDouble() as T;
-    case int:
+    case const (int):
       // Likewise, ints may be stored as doubles. If this is the case
       // (i.e. no decimal value), return the value as an int.
       if (value is num && value.toInt() == value) {
@@ -285,11 +284,13 @@ extension StringDocRef on String {
       .doc(this);
 }
 
-void setAppLanguage(BuildContext context, String language) =>
-    MyApp.of(context).setLocale(language);
+void setAppLanguage(BuildContext context, String language) {
+  // MyApp.of(context).setLocale(language);
+}
 
-void setDarkModeSetting(BuildContext context, ThemeMode themeMode) =>
-    MyApp.of(context).setThemeMode(themeMode);
+void setDarkModeSetting(BuildContext context, ThemeMode themeMode) {
+  // MyApp.of(context).setThemeMode(themeMode);
+}
 
 void showSnackbar(
   BuildContext context,
@@ -466,7 +467,5 @@ extension ListUniqueExt<T> on Iterable<T> {
   }
 }
 
-String getCurrentRoute(BuildContext context) =>
-    context.mounted ? MyApp.of(context).getRoute() : '';
-List<String> getCurrentRouteStack(BuildContext context) =>
-    context.mounted ? MyApp.of(context).getRouteStack() : [];
+String getCurrentRoute(BuildContext context) => '';
+List<String> getCurrentRouteStack(BuildContext context) => [];
