@@ -72,7 +72,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
     try {
       final result = await FilePicker.platform.pickFiles(
         type: FileType.custom,
-        allowedExtensions: ['xlsx', 'csv', 'tsv', 'json'],
+        allowedExtensions: ['xlsx', 'xls', 'csv', 'tsv', 'json'], 
         withData: true, // Required for web
       );
 
@@ -87,7 +87,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
 
       if (bytes == null) {
         setState(() {
-          _errorMessage = 'Δεν ήταν δυνατή η ανάγνωση του αρχείου.';
+          _errorMessage = 'John saidΔεν ήταν δυνατή η ανάγνωση του αρχείου.';
           _isLoading = false;
         });
         return;
@@ -107,14 +107,17 @@ class _UploadFilePageState extends State<UploadFilePage> {
         case 'xlsx':
           _parseXLSX(bytes);
           break;
+        case 'xls':
+          _parseXLSX(bytes);
+          break;
         case 'json':
-          _parseJSON(bytes);
+          _parseJSON(bytes); 
           break;
         default:
           setState(() {
-            _errorMessage = 'Μη υποστηριζόμενος τύπος αρχείου: .$ext';
+            _errorMessage = 'John said: Μη υποστηριζόμενος τύπος αρχείου: .$ext';
           });
-      }
+      } 
 
       // Upload to Firebase Storage → demo_upload/
       await _uploadToStorage(bytes, name);
@@ -156,7 +159,7 @@ class _UploadFilePageState extends State<UploadFilePage> {
     final sheet = excel.tables[sheetName];
 
     if (sheet == null || sheet.rows.isEmpty) {
-      setState(() => _errorMessage = 'Το αρχείο XLSX είναι κενό.');
+      setState(() => _errorMessage = 'Το αρχείο xlsx/xls είναι κενό.');
       return;
     }
 
@@ -340,6 +343,9 @@ class _UploadFilePageState extends State<UploadFilePage> {
       switch (ext) {
         case 'xlsx':
           contentType = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet';
+          break;
+        case 'xls':
+          contentType = 'application/vnd.ms-excel';
           break;
         case 'csv':
           contentType = 'text/csv';
